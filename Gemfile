@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'bcrypt'
+  gem 'better_errors'
 end
 
 group :development do
