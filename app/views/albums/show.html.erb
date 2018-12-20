@@ -1,0 +1,17 @@
+<% location = (@album.live ? "LIVE": "STUDIO") %>
+<h1><%= "#{@album.title}, #{@album.year}" %></h1>
+<br>
+<img src="https://media.tenor.com/images/459ebbf112b67ba4364b69d1bfb51a71/tenor.gif">
+<br>
+<h3>RECORDED: <%= (@album.live ? "LIVE".html_safe : "STUDIO".html_safe ) %></h3>
+<a href="<%= edit_album_url(@album) %>"><%= "EDIT #{@album.title}" %></a>
+<br>
+<br>
+<a href="<%= band_url(@album.band_id) %>">SEE RECORDING BAND</a>
+<br>
+<br>
+<form action="<%= album_url(@album) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= auth_token %>" >
+      <input type="submit" value="DESTROY ALBUM">
+    </form>

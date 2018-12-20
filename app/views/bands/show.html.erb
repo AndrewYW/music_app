@@ -1,5 +1,28 @@
 <h1><%= @band.name %></h1>
+<br>
+<img src="https://i.makeagif.com/media/2-14-2016/fcjurW.gif">
+<br>
+<h3>ALBUMS</h3>
+<br>
+<% @band.albums.each do |album| %>
+  <a href="<%= album_url(album) %>"><%= "#{album.title}, #{album.year}" %></a>
+  <br>
+<% end %>
+<br>
+<a href="<%= new_band_album_url(@band) %>">ADD AN ALBUM</a>
+<br>
+<br>
+<br>
+
 <a href="<%= edit_band_url(@band) %>"><%= "EDIT #{@band.name}" %></a>
 <br>
+
 <br>
 <a href="<%= bands_url %>">SEE ALL BANDS</a>
+<br>
+<br>
+<form action="<%= band_url(@band) %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="authenticity_token" value="<%= auth_token %>" >
+  <input type="submit" value="DESTROY BAND">
+</form>
