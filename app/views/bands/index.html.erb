@@ -1,0 +1,17 @@
+<nav>
+  <h1>bands</h1>
+  <a href="<%= new_band_url %>">
+    Add a new band
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </a>
+</nav>
+<section class="band-index">
+<img src="https://images.rapgenius.com/31ed503134c420f4ec145ff9609f6d70.239x178x7.gif" >
+  <% @bands.each do |band| %>
+    <div class="band-index-item">
+      <div>
+        <br /><a href="<%= band_url(band) %>"><%= band.name %></a>
+      </div>
+    </div>
+  <% end %>
+</section>
