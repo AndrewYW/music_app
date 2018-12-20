@@ -1,0 +1,19 @@
+<h1>Hello my guy</h1>
+
+<%= render "shared/errors" %>
+
+<div class='user-detail'>
+  <form action=<%= session_url %> method='post'>
+    <%= auth_token %>
+    
+    <label for="user_email">Email: </label>
+    <input type="text" name="user[email]" id="user_email">
+    <br>
+
+    <label for="user_password">Password: </label>
+    <input type="text" name="user[password]" id="user_password">
+    <br>
+
+    <input type="submit">
+  </form>
+</div>
