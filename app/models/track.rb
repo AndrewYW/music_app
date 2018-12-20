@@ -14,12 +14,15 @@
 
 class Track < ApplicationRecord
   validates :title, :ord, :album_id, presence: true
+  validates :ord, uniqueness: {scope:  :album_id}
+  validates :bonus, inclusion: {in: [true, false]}
 
+  
   belongs_to :album,
     class_name: :Album,
     foreign_key: :album_id
 
-  belongs_to :band,
-    through :album,
+  has_one :band,
+    through: :album,
     source: :band
 end

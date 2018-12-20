@@ -12,7 +12,11 @@
 #
 
 class Album < ApplicationRecord
-  validates :title, :year, presence: true
+  validates :band, :title, :year, presence: true
+  validates :live, inclusion: {in: [true, false]}
+  validates :name, uniqueness: { scope: :band_id}
+  validates :year, numericality: {minimum: 1900, maximum: 9000}
+
 
   belongs_to :band,
     class_name: :Band,
